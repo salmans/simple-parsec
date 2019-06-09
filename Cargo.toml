@@ -1,7 +1,13 @@
 [package]
 name = "simple-parsec"
 version = "0.1.0"
+license = "MIT/Apache-2.0"
 authors = ["Salman Saghafi <salman.saghafi@me.com>"]
 edition = "2018"
+repository = "https://github.com/salmans/simple-parsec"
+
+[lib]
+crate-type = ["cdylib"]
 
 [dependencies]
+wasm-bindgen = "0.2"

@@ -1,3 +1,5 @@
+use wasm_bindgen::prelude::*;
+
 #[derive(PartialEq, Debug)]
 enum Error<'a> {
     Unexpected(&'a str),
@@ -284,6 +286,12 @@ fn open_element<'a>() -> impl Parser<'a, Element> {
         children: vec![],
     })
 }
+
+#[wasm_bindgen]
+pub fn parse(str: &str) -> bool {
+    return element().parse(str).is_ok();
+}
+
 
 fn element<'a>() -> impl Parser<'a, Element> {
     whitespace_wrap(either(single_element(), parent_element()))
